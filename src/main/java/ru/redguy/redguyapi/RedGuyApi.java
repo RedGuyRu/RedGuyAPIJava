@@ -8,19 +8,17 @@ import java.util.Map;
 public class RedGuyApi {
 
     private final Map<String, String> options;
-    private final String token;
 
     public RedGuyApi(String token) {
-        this.options = verifyOptions(new HashMap<>());
-        this.token = token;
+        this.options = verifyOptions(new HashMap<>(), token);
     }
 
     public RedGuyApi(String token, Map<String, String> options) {
-        this.options = verifyOptions(options);
-        this.token = token;
+        this.options = verifyOptions(options, token);
     }
 
-    private Map<String, String> verifyOptions(Map<String, String> options) {
+    private Map<String, String> verifyOptions(Map<String, String> options, String token) {
+        options.put("token", token);
         if(!options.containsKey("v")) {
             options.put("v","1.0");
         }
@@ -28,6 +26,6 @@ public class RedGuyApi {
     }
 
     public Math math() {
-        return new Math(token,options);
+        return new Math(options);
     }
 }

@@ -5,8 +5,13 @@ import ru.redguy.rednetworker.clients.http.exceptions.OpenConnectionException;
 import ru.redguy.rednetworker.clients.http.exceptions.URLException;
 
 public class Main {
-    public static void main(String[] args) throws OpenConnectionException, ApiError, URLException {
+    public static void main(String[] args) throws Exception {
         RedGuyApi redGuyApi = new RedGuyApi(System.getenv("TOKEN"));
-        System.out.println(redGuyApi.math().get(NumberLevels.factorial,2));
+        if(redGuyApi.math().get(NumberLevels.factorial,2) != 2) {
+            throw new Exception("Incorrect result!");
+        } else {
+            System.out.println("math.get - OK!");
+        }
+        System.out.println("math.max - OK! Got:"+redGuyApi.math().max(NumberLevels.factorial));
     }
 }
