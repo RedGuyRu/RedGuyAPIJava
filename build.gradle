@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+apply plugin: 'maven-publish'
+
+group 'ru.redguy'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile files("libs/http-1.0.0.jar")
+    compile group: 'org.json', name: 'json', version: '20200518'
+}
+
+jar {
+    from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+publishing {
+    publications {
+
+        repositories.maven {
+            url System.getenv("url")
+            credentials {
+                username System.getenv("user")
+                password System.getenv("pass")
+            }
+        }
+
+        maven(MavenPublication) {
+            artifacts {
+                groupId 'ru.redguy'
+                artifactId 'redguyapi'
+                version '1.0.0'
+            }
+        }
+    }
+
+}
