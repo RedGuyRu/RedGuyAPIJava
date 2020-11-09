@@ -13,7 +13,7 @@ compile group: 'ru.redguy', name: 'redguyapi', version: '1.0.0'
 ## Supported classes
 Auth - WIP<br>
 Math - v1.0<br>
-Users - WIP<br>
+Users - v1.0<br>
 Event - WIP<br>
 Dnevnik Social- WIP<br>
 Games Integration - WIP<br>

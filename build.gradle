@@ -4,7 +4,7 @@ plugins {
 apply plugin: 'maven-publish'
 
 group 'ru.redguy'
-version '1.0.1'
+version '1.0.2'
 
 repositories {
     mavenCentral()
@@ -34,7 +34,7 @@ publishing {
             artifacts {
                 groupId 'ru.redguy'
                 artifactId 'redguyapi'
-                version '1.0.1'
+                version '1.0.2'
             }
         }
     }

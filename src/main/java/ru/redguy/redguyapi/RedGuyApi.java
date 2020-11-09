@@ -1,6 +1,7 @@
 package ru.redguy.redguyapi;
 
 import ru.redguy.redguyapi.math.Math;
+import ru.redguy.redguyapi.users.Users;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,4 +29,6 @@ public class RedGuyApi {
     public Math math() {
         return new Math(options);
     }
+
+    public Users users() {return new Users(options);}
 }
