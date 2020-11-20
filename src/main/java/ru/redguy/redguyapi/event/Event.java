@@ -1,0 +1,36 @@
+package ru.redguy.redguyapi.event;
+
+public class Event {
+    options;
+
+    constructor(options) {
+        this.options = options;
+    }
+
+    getStats(nick) {
+        return new Promise((resolve, reject) => {
+            ApiRequest.mainGet("event/stats/get",this.options,{nick})
+                    .catch((error) => {
+                    reject(error);
+            }).then((result) => {
+                    resolve(result.response);
+            });
+        });
+    }
+
+    Coins() {
+        return new Coins(this.options);
+    }
+
+    Tokens() {
+        return new Tokens(this.options);
+    }
+
+    Wins() {
+        return new Wins(this.options);
+    }
+
+    Kills() {
+        return new Kills(this.options);
+    }
+}

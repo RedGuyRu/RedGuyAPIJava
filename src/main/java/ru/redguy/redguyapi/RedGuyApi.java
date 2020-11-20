@@ -30,5 +30,7 @@ public class RedGuyApi {
         return new Math(options);
     }
 
-    public Users users() {return new Users(options);}
+    public Users users() {return new Users(options); }
+
+    public
 }
