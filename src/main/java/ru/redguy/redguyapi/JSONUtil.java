@@ -18,4 +18,12 @@ public class JSONUtil extends JSONObject {
             return defaultValue;
         }
     }
+
+    public int getIntOrDefault(String key, int defaultValue) {
+        try {
+            return jsonObject.getInt(key);
+        } catch (JSONException exception) {
+            return defaultValue;
+        }
+    }
 }

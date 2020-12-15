@@ -11,7 +11,8 @@ repositories {
 }
 
 dependencies {
-    compile files("libs/http-1.0.0.jar")
+    compile files("libs/ApacheFluentAPI-1.0.0.jar")
+    compile files("libs/commonhttp-1.0.0.jar")
     compile group: 'org.json', name: 'json', version: '20200518'
 }
 

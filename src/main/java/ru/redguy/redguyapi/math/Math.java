@@ -4,7 +4,6 @@ import org.json.JSONObject;
 import ru.redguy.redguyapi.ApiError;
 import ru.redguy.rednetworker.clients.http.ApacheFluentAPI;
 import ru.redguy.rednetworker.clients.http.exceptions.OpenConnectionException;
-import ru.redguy.rednetworker.clients.http.exceptions.URLException;
 
 import java.util.HashMap;
 import java.util.Map;

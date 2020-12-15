@@ -1,24 +1,27 @@
 package ru.redguy.redguyapi.event;
 
-public class Event {
-    options;
+import ru.redguy.redguyapi.ApiError;
+import ru.redguy.redguyapi.ApiRequest;
 
-    constructor(options) {
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Event {
+
+    private final Map<String, String> options;
+
+    public Event(Map<String, String> options) {
         this.options = options;
     }
 
-    getStats(nick) {
-        return new Promise((resolve, reject) => {
-            ApiRequest.mainGet("event/stats/get",this.options,{nick})
-                    .catch((error) => {
-                    reject(error);
-            }).then((result) => {
-                    resolve(result.response);
-            });
-        });
+    public PlayerStats getStats(String nick) throws IOException, ApiError {
+        return new PlayerStats(ApiRequest.mainGet("event/stats/get",this.options, new HashMap<String, Object>() {{
+            put("nick",nick);
+        }}));
     }
 
-    Coins() {
+    public Coins Coins() {
         return new Coins(this.options);
     }
 
