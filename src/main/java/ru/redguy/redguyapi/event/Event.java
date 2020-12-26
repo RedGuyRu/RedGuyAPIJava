@@ -25,7 +25,7 @@ public class Event {
         return new Coins(this.options);
     }
 
-    Tokens() {
+    public Tokens Tokens() {
         return new Tokens(this.options);
     }
 
