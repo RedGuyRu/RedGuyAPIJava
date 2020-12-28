@@ -29,7 +29,7 @@ public class Event {
         return new Tokens(this.options);
     }
 
-    Wins() {
+    public Wins Wins() {
         return new Wins(this.options);
     }
 
