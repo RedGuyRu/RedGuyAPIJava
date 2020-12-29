@@ -33,7 +33,7 @@ public class Event {
         return new Wins(this.options);
     }
 
-    Kills() {
+    public Kills Kills() {
         return new Kills(this.options);
     }
 }

@@ -1,5 +1,6 @@
 package ru.redguy.redguyapi;
 
+import ru.redguy.redguyapi.event.Event;
 import ru.redguy.redguyapi.math.Math;
 import ru.redguy.redguyapi.users.Users;
 
@@ -32,5 +33,5 @@ public class RedGuyApi {
 
     public Users users() {return new Users(options); }
 
-    public
+    public Event event() {return new Event(options); }
 }
