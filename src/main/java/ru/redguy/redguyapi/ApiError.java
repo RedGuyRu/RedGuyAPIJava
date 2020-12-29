@@ -10,4 +10,9 @@ public class ApiError extends Exception {
         this.code = code;
         this.comment = comment;
     }
+
+    @Override
+    public String getMessage() {
+        return comment;
+    }
 }

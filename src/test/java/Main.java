@@ -1,4 +1,5 @@
 import ru.redguy.redguyapi.RedGuyApi;
+import ru.redguy.redguyapi.ValueChange;
 import ru.redguy.redguyapi.math.NumberLevels;
 
 public class Main {
@@ -15,5 +16,16 @@ public class Main {
         } else {
             System.out.println("users.get - OK!");
         }
+
+        int wins = redGuyApi.event().Wins().get("b12");
+        ValueChange add = redGuyApi.event().Wins().add("b12",1);
+        if((int)add.getOldValue() != wins) {
+            throw new Exception("Incorrect result!");
+        }
+        ValueChange set = redGuyApi.event().Wins().set("b12",wins);
+        if((int)set.getNewValue() != wins) {
+            throw new Exception("Incorrect result!");
+        }
+        System.out.println("Event.Wins.* - OK!");
     }
 }
