@@ -18,4 +18,5 @@ Event - WIP<br>
 Dnevnik Social- WIP<br>
 Games Integration - WIP<br>
 Teams - WIP<br>
-Store - WIP
+Store - WIP<br>
+Minecraft - WIP
