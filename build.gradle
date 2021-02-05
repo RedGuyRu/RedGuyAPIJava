@@ -1,7 +1,8 @@
 plugins {
     id 'java'
+    id 'maven'
 }
-apply plugin: 'maven-publish'
+apply plugin: 'maven'
 
 group 'ru.redguy'
 version '1.0.3'
@@ -11,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    compile files("libs/ApacheFluentAPI-1.0.2.jar")
+    compile 'ru.redguy.rednetworker.clients.http:apachefluentapi:1.0.2'
     compile group: 'org.json', name: 'json', version: '20200518'
 }
 
@@ -19,24 +20,15 @@ jar {
     from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
-publishing {
-    publications {
-
-        repositories.maven {
-            url System.getenv("url")
-            credentials {
-                username System.getenv("user")
-                password System.getenv("pass")
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "https://mvn.redguy.ru/repository/maven-releases/") {
+                authentication(userName: System.getenv("MVN_USER"), password: System.getenv("MVN_PASSWORD"))
             }
-        }
-
-        maven(MavenPublication) {
-            artifacts {
-                groupId 'ru.redguy'
-                artifactId 'redguyapi'
-                version '1.0.2'
-            }
+            pom.version = "1.0.2"
+            pom.artifactId = "redguyapi"
+            pom.groupId = "ru.redguy"
         }
     }
-
 }
