@@ -15,7 +15,6 @@ Auth - WIP<br>
 Math - v1.0<br>
 Users - v1.0<br>
 Event - WIP<br>
-Dnevnik Social- WIP<br>
 Games Integration - WIP<br>
 Teams - WIP<br>
 Store - WIP<br>
