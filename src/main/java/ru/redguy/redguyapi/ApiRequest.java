@@ -22,7 +22,7 @@ public class ApiRequest {
                             .execute()
                             .getString()
             );
-        } catch (InputStreamException | HttpProtocolException e) {
+        } catch (HttpProtocolException e) {
             throw new IOException(e);
         }
         if (result.getInt("code") != 1) {
@@ -46,7 +46,7 @@ public class ApiRequest {
                             .execute()
                             .getString()
             );
-        }catch (InputStreamException | HttpProtocolException e) {
+        }catch (HttpProtocolException e) {
                 throw new IOException(e);
             }
         if (result.getInt("code") != 1) {
