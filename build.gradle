@@ -5,22 +5,18 @@ plugins {
 apply plugin: 'maven'
 
 group 'ru.redguy'
-version '1.0.4'
+version '1.0.6'
 
 repositories {
     mavenCentral()
     maven {
-        url "https://mvn.redguy.ru/repository/maven-releases/"
+        url "https://mvn.redguy.ru/repository/maven-public/"
     }
 }
 
 dependencies {
-    compile 'ru.redguy.rednetworker.clients.http:apachefluentapi:1.0.4'
+    compile 'ru.redguy.rednetworker.clients.http:apachefluentapi:1.0.5'
     compile group: 'org.json', name: 'json', version: '20200518'
-}
-
-jar {
-    from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
 uploadArchives {
@@ -29,7 +25,7 @@ uploadArchives {
             repository(url: "https://mvn.redguy.ru/repository/maven-releases/") {
                 authentication(userName: System.getenv("MVN_USER"), password: System.getenv("MVN_PASSWORD"))
             }
-            pom.version = "1.0.4"
+            pom.version = "1.0.6"
             pom.artifactId = "redguyapi"
             pom.groupId = "ru.redguy"
         }
