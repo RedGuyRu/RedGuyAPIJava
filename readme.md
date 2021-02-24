@@ -11,7 +11,6 @@ compile group: 'ru.redguy', name: 'redguyapi', version: '1.0.2'
 ```
 
 ## Supported classes
-Auth - WIP<br>
 Math - v1.0<br>
 Users - v1.0<br>
 Event - v1.0<br>
