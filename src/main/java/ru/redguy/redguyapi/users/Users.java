@@ -1,10 +1,7 @@
 package ru.redguy.redguyapi.users;
 
-import org.json.JSONObject;
 import ru.redguy.redguyapi.ApiError;
 import ru.redguy.redguyapi.ApiRequest;
-import ru.redguy.rednetworker.clients.http.ApacheFluentAPI;
-import ru.redguy.rednetworker.clients.http.exceptions.OpenConnectionException;
 
 import java.io.IOException;
 import java.util.HashMap;
