@@ -1,5 +1,6 @@
 package ru.redguy.redguyapi;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import ru.redguy.rednetworker.clients.http.ApacheFluentAPI;
 import ru.redguy.rednetworker.clients.http.HttpMethod;
@@ -29,6 +30,28 @@ public class ApiRequest {
             throw new ApiError(result.getInt("code"), result.getString("comment"));
         } else {
             return result.getJSONObject("response");
+        }
+    }
+
+    public static JSONArray mainGetArray(String path, Map<String, String> options, Map<String, Object> params) throws ApiError, IOException {
+        params.put("token", options.get("token"));
+        params.put("v", options.get("v"));
+        JSONObject result;
+        try {
+            result = new JSONObject(
+                    new ApacheFluentAPI()
+                            .url("https://api.redguy.ru/" + path + "/")
+                            .setGetParams(params)
+                            .execute()
+                            .getString()
+            );
+        } catch (HttpProtocolException e) {
+            throw new IOException(e);
+        }
+        if (result.getInt("code") != 1) {
+            throw new ApiError(result.getInt("code"), result.getString("comment"));
+        } else {
+            return result.getJSONArray("response");
         }
     }
 

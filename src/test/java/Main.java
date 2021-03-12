@@ -27,5 +27,10 @@ public class Main {
             throw new Exception("Incorrect result!");
         }
         System.out.println("Event.Wins.* - OK!");
+
+        if(!redGuyApi.teams().get(195680093, "vk").get(0).team.name.equals("RedGuyGames")) {
+            throw new Exception("Incorrect result!");
+        }
+        System.out.println("Teams.get - OK!");
     }
 }

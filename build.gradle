@@ -5,7 +5,7 @@ plugins {
 apply plugin: 'maven'
 
 group 'ru.redguy'
-version '1.0.6'
+version '1.0.7'
 
 repositories {
     mavenCentral()
@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    compile 'ru.redguy.rednetworker.clients.http:apachefluentapi:1.0.5'
+    compile 'ru.redguy.rednetworker.clients.http:apachefluentapi:1.0.6'
     compile group: 'org.json', name: 'json', version: '20200518'
 }
 
@@ -25,7 +25,7 @@ uploadArchives {
             repository(url: "https://mvn.redguy.ru/repository/maven-releases/") {
                 authentication(userName: System.getenv("MVN_USER"), password: System.getenv("MVN_PASSWORD"))
             }
-            pom.version = "1.0.6"
+            pom.version = "1.0.7"
             pom.artifactId = "redguyapi"
             pom.groupId = "ru.redguy"
         }
