@@ -6,7 +6,11 @@ import ru.redguy.redguyapi.JSONUtil;
 public class User {
 
     private int id;
-    private String first_name, last_name, mine_nick, avatar_url, background_url;
+    private String first_name,
+            last_name,
+            mine_nick,
+            avatar_url,
+            background_url;
 
     public User(JSONObject jsonObject) {
         JSONUtil jsonUtil = new JSONUtil(jsonObject);

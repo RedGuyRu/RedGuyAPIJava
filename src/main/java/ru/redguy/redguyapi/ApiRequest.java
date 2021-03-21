@@ -5,7 +5,6 @@ import org.json.JSONObject;
 import ru.redguy.rednetworker.clients.http.ApacheFluentAPI;
 import ru.redguy.rednetworker.clients.http.HttpMethod;
 import ru.redguy.rednetworker.clients.http.exceptions.HttpProtocolException;
-import ru.redguy.rednetworker.clients.http.exceptions.InputStreamException;
 
 import java.io.IOException;
 import java.util.Map;

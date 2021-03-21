@@ -6,13 +6,13 @@ public class Main {
     public static void main(String[] args) throws Exception {
         RedGuyApi redGuyApi = new RedGuyApi(System.getenv("TOKEN"));
         if(redGuyApi.math().get(NumberLevels.factorial,2) != 2) {
-            throw new Exception("Incorrect result!");
+            throw new IllegalArgumentException("Incorrect result!");
         } else {
             System.out.println("math.get - OK!");
         }
         System.out.println("math.max - OK! Got:"+redGuyApi.math().max(NumberLevels.factorial));
         if(redGuyApi.users().get(1).getId() != 1) {
-            throw new Exception("Incorrect result!");
+            throw new IllegalArgumentException("Incorrect result!");
         } else {
             System.out.println("users.get - OK!");
         }
@@ -20,16 +20,16 @@ public class Main {
         int wins = redGuyApi.event().Wins().get("b12");
         ValueChange add = redGuyApi.event().Wins().add("b12",1);
         if((int)add.getOldValue() != wins) {
-            throw new Exception("Incorrect result!");
+            throw new IllegalArgumentException("Incorrect result!");
         }
         ValueChange set = redGuyApi.event().Wins().set("b12",wins);
         if((int)set.getNewValue() != wins) {
-            throw new Exception("Incorrect result!");
+            throw new IllegalArgumentException("Incorrect result!");
         }
         System.out.println("Event.Wins.* - OK!");
 
         if(!redGuyApi.teams().get(195680093, "vk").get(0).team.name.equals("RedGuyGames")) {
-            throw new Exception("Incorrect result!");
+            throw new IllegalArgumentException("Incorrect result!");
         }
         System.out.println("Teams.get - OK!");
     }

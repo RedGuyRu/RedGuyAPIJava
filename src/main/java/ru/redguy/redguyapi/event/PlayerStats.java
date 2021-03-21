@@ -5,7 +5,10 @@ import ru.redguy.redguyapi.JSONUtil;
 
 public class PlayerStats {
 
-    private int coins, wins, tokens, kills;
+    private int coins,
+            wins,
+            tokens,
+            kills;
 
     public PlayerStats(JSONObject jsonObject) {
         JSONUtil jsonUtil = new JSONUtil(jsonObject);
