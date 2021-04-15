@@ -17,4 +17,3 @@ Event - v1.0<br>
 Games Integration - v1.0<br>
 Teams - v1.0<br>
 Store - WIP<br>
-Minecraft - WIP
