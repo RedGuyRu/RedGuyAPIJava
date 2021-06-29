@@ -7,7 +7,7 @@ Library to use [redguy api](https://wiki.redguy.ru/Api "redguy api").
 ## Install
 gradle
 ```groovy
-compile group: 'ru.redguy', name: 'redguyapi', version: '1.0.2'
+compile group: 'ru.redguy', name: 'redguyapi', version: '1.0.7'
 ```
 
 ## Supported classes
@@ -17,4 +17,3 @@ Event - v1.0<br>
 Games Integration - v1.0<br>
 Teams - v1.0<br>
 Store - WIP<br>
-Minecraft - WIP
