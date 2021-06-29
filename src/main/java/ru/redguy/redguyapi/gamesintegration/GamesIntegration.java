@@ -19,7 +19,7 @@ public class GamesIntegration {
 
     public String linkAccount(String nick, String game, int appId, String secretKey) throws ApiError, IOException, NoSuchAlgorithmException {
         long ts = System.currentTimeMillis()/1000;
-        String hash = HashUtils.md5(appId+secretKey+ts);
+        String hash = HashUtils.md5(appId+""+ts+secretKey);
         return ApiRequest.mainGet("gamesintegration/linkaccount",options,new HashMap<String, Object>() {{
             put("nick",nick);
             put("game",game);
