@@ -15,5 +15,4 @@ Math - v1.0<br>
 Users - v1.0<br>
 Event - v1.0<br>
 Games Integration - v1.0<br>
-Teams - v1.0<br>
-Store - WIP<br>
+Teams - v1.0
