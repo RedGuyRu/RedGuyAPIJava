@@ -21,19 +21,19 @@ public class Event {
         }}));
     }
 
-    public Coins Coins() {
+    public Coins coins() {
         return new Coins(this.options);
     }
 
-    public Tokens Tokens() {
+    public Tokens tokens() {
         return new Tokens(this.options);
     }
 
-    public Wins Wins() {
+    public Wins wins() {
         return new Wins(this.options);
     }
 
-    public Kills Kills() {
+    public Kills kills() {
         return new Kills(this.options);
     }
 }

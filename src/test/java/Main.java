@@ -17,12 +17,12 @@ public class Main {
             System.out.println("users.get - OK!");
         }
 
-        int wins = redGuyApi.event().Wins().get("b12");
-        ValueChange add = redGuyApi.event().Wins().add("b12",1);
+        int wins = redGuyApi.event().wins().get("b12");
+        ValueChange add = redGuyApi.event().wins().add("b12",1);
         if((int)add.getOldValue() != wins) {
             throw new IllegalArgumentException("Incorrect result!");
         }
-        ValueChange set = redGuyApi.event().Wins().set("b12",wins);
+        ValueChange set = redGuyApi.event().wins().set("b12",wins);
         if((int)set.getNewValue() != wins) {
             throw new IllegalArgumentException("Incorrect result!");
         }
