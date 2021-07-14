@@ -1,3 +1,4 @@
+package ru.redguy.redguyapi.test;
 import ru.redguy.redguyapi.RedGuyApi;
 import ru.redguy.redguyapi.ValueChange;
 import ru.redguy.redguyapi.math.NumberLevels;
