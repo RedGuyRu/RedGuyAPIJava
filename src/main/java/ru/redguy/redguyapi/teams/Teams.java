@@ -18,7 +18,7 @@ public class Teams {
             this.options = options;
         }
 
-    public List<TeamPosition> get(int id, String socNet) throws IOException, ApiError {
+    /*public List<TeamPosition> get(int id, String socNet) throws IOException, ApiError {
         JSONArray objects =  ApiRequest.mainGetArray("team/users/get",
                 this.options,
                 new HashMap<String, Object>() {{put("id",id); put("type",socNet);}}
@@ -33,5 +33,5 @@ public class Teams {
             ));
         }
         return positions;
-    }
+    }*/
 }
