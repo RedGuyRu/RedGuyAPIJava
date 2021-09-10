@@ -1,9 +1,7 @@
 package ru.redguy.redguyapi.event;
 
-import org.json.JSONObject;
 import ru.redguy.redguyapi.ApiError;
-import ru.redguy.redguyapi.ApiRequest;
-import ru.redguy.redguyapi.ValueChange;
+import ru.redguy.redguyapi.RequestUtil;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -16,25 +14,57 @@ public class Coins {
         this.options = options;
     }
 
-    public int get(String nick) throws IOException, ApiError {
-        return ApiRequest.mainGet("event/coins/get",this.options,new HashMap<String, Object>() {{
+    public GetResponse get(String nick) throws IOException, ApiError {
+        return RequestUtil.mainGet("event/coins/get",GetResponse.class,this.options,new HashMap<String, Object>() {{
             put("nick",nick);
-        }}).getInt("coins");
+        }});
     }
 
-    public ValueChange add(String nick, int coins) throws IOException, ApiError {
-        JSONObject json = ApiRequest.mainGet("event/coins/add",this.options,new HashMap<String, Object>() {{
+    public static class GetResponse implements RequestUtil.ApiResponse {
+        protected int coins;
+
+        public int getCoins() {
+            return coins;
+        }
+    }
+
+    public AddResponse add(String nick, int coins) throws IOException, ApiError {
+        return RequestUtil.mainGet("event/coins/add",AddResponse.class,this.options,new HashMap<String, Object>() {{
             put("nick",nick);
             put("coins",coins);
         }});
-        return new ValueChange(json.getInt("oldCoins"),json.getInt("newCoins"));
     }
 
-    public ValueChange set(String nick, int coins) throws IOException, ApiError {
-        JSONObject json = ApiRequest.mainGet("event/coins/set",this.options,new HashMap<String, Object>() {{
+    public static class AddResponse implements RequestUtil.ApiResponse {
+        protected int oldCoins;
+        protected int newCoins;
+
+        public int getOldCoins() {
+            return oldCoins;
+        }
+
+        public int getNewCoins() {
+            return newCoins;
+        }
+    }
+
+    public SetResponse set(String nick, int coins) throws IOException, ApiError {
+        return RequestUtil.mainGet("event/coins/set",SetResponse.class,this.options,new HashMap<String, Object>() {{
             put("nick",nick);
             put("coins",coins);
         }});
-        return new ValueChange(json.getInt("oldCoins"),json.getInt("newCoins"));
+    }
+
+    public static class SetResponse implements RequestUtil.ApiResponse {
+        protected int oldCoins;
+        protected int newCoins;
+
+        public int getOldCoins() {
+            return oldCoins;
+        }
+
+        public int getNewCoins() {
+            return newCoins;
+        }
     }
 }

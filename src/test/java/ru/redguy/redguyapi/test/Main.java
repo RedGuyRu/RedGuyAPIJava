@@ -1,6 +1,7 @@
 package ru.redguy.redguyapi.test;
 import ru.redguy.redguyapi.RedGuyApi;
 import ru.redguy.redguyapi.ValueChange;
+import ru.redguy.redguyapi.event.Wins;
 import ru.redguy.redguyapi.math.NumberLevels;
 
 public class Main {
@@ -18,13 +19,13 @@ public class Main {
             System.out.println("users.get - OK!");
         }
 
-        int wins = redGuyApi.event().wins().get("b12");
-        ValueChange add = redGuyApi.event().wins().add("b12",1);
-        if((int)add.getOldValue() != wins) {
+        int wins = redGuyApi.event().wins().get("b12").getWins();
+        Wins.AddResponse add = redGuyApi.event().wins().add("b12",1);
+        if(add.getOldWins() != wins) {
             throw new IllegalArgumentException("Incorrect result!");
         }
-        ValueChange set = redGuyApi.event().wins().set("b12",wins);
-        if((int)set.getNewValue() != wins) {
+        Wins.SetResponse set = redGuyApi.event().wins().set("b12",wins);
+        if(set.getNewWins() != wins) {
             throw new IllegalArgumentException("Incorrect result!");
         }
         System.out.println("Event.Wins.* - OK!");

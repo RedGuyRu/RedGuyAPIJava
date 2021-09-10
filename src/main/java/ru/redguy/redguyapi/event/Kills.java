@@ -1,8 +1,7 @@
 package ru.redguy.redguyapi.event;
 
-import org.json.JSONObject;
 import ru.redguy.redguyapi.ApiError;
-import ru.redguy.redguyapi.ApiRequest;
+import ru.redguy.redguyapi.RequestUtil;
 import ru.redguy.redguyapi.ValueChange;
 
 import java.io.IOException;
@@ -16,25 +15,57 @@ public class Kills {
         this.options = options;
     }
 
-    public int get(String nick) throws IOException, ApiError {
-        return ApiRequest.mainGet("event/kills/get",this.options,new HashMap<String, Object>() {{
+    public GetResponse get(String nick) throws IOException, ApiError {
+        return RequestUtil.mainGet("event/kills/get",GetResponse.class,this.options,new HashMap<String, Object>() {{
             put("nick",nick);
-        }}).getInt("kills");
+        }});
     }
 
-    public ValueChange add(String nick, int kills) throws IOException, ApiError {
-        JSONObject json = ApiRequest.mainGet("event/kills/add",this.options,new HashMap<String, Object>() {{
+    public static class GetResponse implements RequestUtil.ApiResponse {
+        protected int kills;
+
+        public int getKills() {
+            return kills;
+        }
+    }
+
+    public AddResponse add(String nick, int kills) throws IOException, ApiError {
+        return RequestUtil.mainGet("event/kills/add",AddResponse.class,this.options,new HashMap<String, Object>() {{
             put("nick",nick);
             put("kills",kills);
         }});
-        return new ValueChange(json.getInt("oldKills"),json.getInt("newKills"));
     }
 
-    public ValueChange set(String nick, int kills) throws IOException, ApiError {
-        JSONObject json = ApiRequest.mainGet("event/kills/set",this.options,new HashMap<String, Object>() {{
+    public static class AddResponse implements RequestUtil.ApiResponse {
+        protected int oldKills;
+        protected int newKills;
+
+        public int getOldKills() {
+            return oldKills;
+        }
+
+        public int getNewKills() {
+            return newKills;
+        }
+    }
+
+    public SetResponse set(String nick, int kills) throws IOException, ApiError {
+        return RequestUtil.mainGet("event/kills/set",SetResponse.class,this.options,new HashMap<String, Object>() {{
             put("nick",nick);
             put("kills",kills);
         }});
-        return new ValueChange(json.getInt("oldKills"),json.getInt("newKills"));
+    }
+
+    public static class SetResponse implements RequestUtil.ApiResponse {
+        protected int oldKills;
+        protected int newKills;
+
+        public int getOldKills() {
+            return oldKills;
+        }
+
+        public int getNewKills() {
+            return newKills;
+        }
     }
 }

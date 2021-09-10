@@ -1,7 +1,7 @@
 package ru.redguy.redguyapi.gamesintegration;
 
 import ru.redguy.redguyapi.ApiError;
-import ru.redguy.redguyapi.ApiRequest;
+import ru.redguy.redguyapi.RequestUtil;
 import ru.redguy.redguyapi.HashUtils;
 
 import java.io.IOException;
@@ -17,15 +17,23 @@ public class GamesIntegration {
         this.options = options;
     }
 
-    public String linkAccount(String nick, String game, int appId, String secretKey) throws ApiError, IOException, NoSuchAlgorithmException {
+    public LinkAccountResponse linkAccount(String nick, String game, int appId, String secretKey) throws ApiError, IOException, NoSuchAlgorithmException {
         long ts = System.currentTimeMillis()/1000;
         String hash = HashUtils.md5(appId+""+ts+secretKey);
-        return ApiRequest.mainGet("gamesintegration/linkaccount",options,new HashMap<String, Object>() {{
+        return RequestUtil.mainGet("gamesintegration/linkaccount",LinkAccountResponse.class,options,new HashMap<String, Object>() {{
             put("nick",nick);
             put("game",game);
             put("ts",ts);
             put("secret",hash);
             put("appid",appId);
-        }}).getString("code");
+        }});
+    }
+
+    public static class LinkAccountResponse implements RequestUtil.ApiResponse {
+        protected String code;
+
+        public String getCode() {
+            return code;
+        }
     }
 }

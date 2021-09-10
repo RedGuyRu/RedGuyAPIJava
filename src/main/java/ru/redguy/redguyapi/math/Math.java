@@ -1,7 +1,7 @@
 package ru.redguy.redguyapi.math;
 
 import ru.redguy.redguyapi.ApiError;
-import ru.redguy.redguyapi.ApiRequest;
+import ru.redguy.redguyapi.RequestUtil;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -15,16 +15,32 @@ public class Math {
         this.options = options;
     }
 
-    public int get(NumberLevels level, int number) throws ApiError, IOException {
-        return ApiRequest.mainGet("math/get",options,new HashMap<String, Object>() {{
+    public GetResponse get(NumberLevels level, int number) throws ApiError, IOException {
+        return RequestUtil.mainGet("math/get",GetResponse.class,options,new HashMap<String, Object>() {{
             put("level",level.getLevel());
             put("number",String.valueOf(number));
-        }}).getInt("result");
+        }});
     }
 
-    public int max(NumberLevels level) throws ApiError, IOException {
-        return ApiRequest.mainGet("math/max",options,new HashMap<String, Object>() {{
+    public static class GetResponse implements RequestUtil.ApiResponse {
+        protected int result;
+
+        public int getResult() {
+            return result;
+        }
+    }
+
+    public MaxResponse max(NumberLevels level) throws ApiError, IOException {
+        return RequestUtil.mainGet("math/max",MaxResponse.class,options,new HashMap<String, Object>() {{
             put("level",level.getLevel());
-        }}).getInt("max");
+        }});
+    }
+
+    public static class MaxResponse implements RequestUtil.ApiResponse {
+        protected int max;
+
+        public int getMax() {
+            return max;
+        }
     }
 }

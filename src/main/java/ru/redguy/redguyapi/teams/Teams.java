@@ -1,14 +1,5 @@
 package ru.redguy.redguyapi.teams;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import ru.redguy.redguyapi.ApiError;
-import ru.redguy.redguyapi.ApiRequest;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Teams {
