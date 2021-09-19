@@ -1,6 +1,5 @@
 package ru.redguy.redguyapi;
 
-import ru.redguy.redguyapi.event.Event;
 import ru.redguy.redguyapi.gamesintegration.GamesIntegration;
 import ru.redguy.redguyapi.math.Math;
 import ru.redguy.redguyapi.teams.Teams;
@@ -34,8 +33,6 @@ public class RedGuyApi {
     }
 
     public Users users() {return new Users(options); }
-
-    public Event event() {return new Event(options); }
 
     public GamesIntegration gamesIntegration() {return new GamesIntegration(options);}
 
