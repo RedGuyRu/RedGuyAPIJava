@@ -2,6 +2,7 @@ package ru.redguy.redguyapi;
 
 import ru.redguy.redguyapi.gamesintegration.GamesIntegration;
 import ru.redguy.redguyapi.math.Math;
+import ru.redguy.redguyapi.minecraft.Minecraft;
 import ru.redguy.redguyapi.teams.Teams;
 import ru.redguy.redguyapi.users.Users;
 
@@ -27,6 +28,8 @@ public class RedGuyApi {
         }
         return options;
     }
+
+    public Minecraft minecraft() {return new Minecraft(options);}
 
     public Math math() {
         return new Math(options);

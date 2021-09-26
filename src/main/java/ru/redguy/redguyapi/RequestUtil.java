@@ -14,7 +14,6 @@ public class RequestUtil {
 
     public static <T extends ApiResponse> T mainGet(String path, Class<T> responseType, Map<String, String> options, Map<String, Object> params) throws ApiError, IOException {
         params.put("token", options.get("token"));
-        params.put("v", options.get("v"));
 
         Request request = new Request.Builder().url("https://api.redguy.ru/" + path + "/" + buildGet(params)).get().build();
 
@@ -29,7 +28,6 @@ public class RequestUtil {
 
     public static <T extends ApiResponse> T mainPost(String path, Class<T> responseType, Map<String, String> options, String body, Map<String, Object> params) throws ApiError, IOException {
         params.put("token", options.get("token"));
-        params.put("v", options.get("v"));
 
         RequestBody rb = RequestBody.create(body, MediaType.get("application/json; charset=utf-8"));
 
