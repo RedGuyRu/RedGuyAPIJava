@@ -1,19 +1,19 @@
 package ru.redguy.redguyapi;
 
-public class ValueChange {
-    private final Object newValue;
-    private final Object oldValue;
+public class ValueChange<K,V> {
+    private final V newValue;
+    private final K oldValue;
 
-    public ValueChange(Object oldValue, Object newValue) {
+    public ValueChange (K oldValue, V newValue) {
         this.newValue = newValue;
         this.oldValue = oldValue;
     }
 
-    public Object getNewValue() {
+    public V getNewValue() {
         return newValue;
     }
 
-    public Object getOldValue() {
+    public K getOldValue() {
         return oldValue;
     }
 }

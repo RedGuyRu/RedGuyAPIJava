@@ -1,10 +1,6 @@
 package ru.redguy.redguyapi;
 
-import ru.redguy.redguyapi.gamesintegration.GamesIntegration;
-import ru.redguy.redguyapi.math.Math;
 import ru.redguy.redguyapi.minecraft.Minecraft;
-import ru.redguy.redguyapi.teams.Teams;
-import ru.redguy.redguyapi.users.Users;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,21 +19,8 @@ public class RedGuyApi {
 
     private Map<String, String> verifyOptions(Map<String, String> options, String token) {
         options.put("token", token);
-        if(!options.containsKey("v")) {
-            options.put("v","1.0");
-        }
         return options;
     }
 
     public Minecraft minecraft() {return new Minecraft(options);}
-
-    public Math math() {
-        return new Math(options);
-    }
-
-    public Users users() {return new Users(options); }
-
-    public GamesIntegration gamesIntegration() {return new GamesIntegration(options);}
-
-    public Teams teams() {return new Teams(options);}
 }
