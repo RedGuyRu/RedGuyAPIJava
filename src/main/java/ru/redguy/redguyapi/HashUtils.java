@@ -1,11 +1,14 @@
 package ru.redguy.redguyapi;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashUtils {
-    public static String md5(String st) throws NoSuchAlgorithmException {
+    @NotNull
+    public static String md5(@NotNull String st) throws NoSuchAlgorithmException {
         MessageDigest messageDigest = null;
         byte[] digest = new byte[0];
 

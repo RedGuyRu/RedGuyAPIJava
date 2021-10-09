@@ -1,5 +1,7 @@
 package ru.redguy.redguyapi;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import ru.redguy.redguyapi.minecraft.Minecraft;
 
 import java.util.HashMap;
@@ -17,7 +19,9 @@ public class RedGuyApi {
         this.options = verifyOptions(options, token);
     }
 
-    private Map<String, String> verifyOptions(Map<String, String> options, String token) {
+    @NotNull
+    @Contract("_, _ -> param1")
+    private Map<String, String> verifyOptions(@NotNull Map<String, String> options, String token) {
         options.put("token", token);
         return options;
     }

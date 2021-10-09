@@ -2,6 +2,7 @@ package ru.redguy.redguyapi;
 
 import com.google.gson.JsonElement;
 import okhttp3.*;
+import org.jetbrains.annotations.NotNull;
 import ru.redguy.redguyapi.utils.GSON;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.util.Map;
 public class RequestUtil {
     private static final OkHttpClient okHttpClient = new OkHttpClient();
 
-    public static <T extends ApiResponse> T mainGet(String path, Class<T> responseType, Map<String, String> options, Map<String, Object> params) throws ApiError, IOException {
+    public static <T extends ApiResponse> T mainGet(String path, Class<T> responseType, @NotNull Map<String, String> options, @NotNull Map<String, Object> params) throws ApiError, IOException {
         params.put("token", options.get("token"));
 
         Request request = new Request.Builder().url("https://api.redguy.ru/" + path + "/" + buildGet(params)).get().build();
@@ -26,7 +27,7 @@ public class RequestUtil {
         }
     }
 
-    public static <T extends ApiResponse> T mainPost(String path, Class<T> responseType, Map<String, String> options, String body, Map<String, Object> params) throws ApiError, IOException {
+    public static <T extends ApiResponse> T mainPost(String path, Class<T> responseType, @NotNull Map<String, String> options, String body, @NotNull Map<String, Object> params) throws ApiError, IOException {
         params.put("token", options.get("token"));
 
         RequestBody rb = RequestBody.create(body, MediaType.get("application/json; charset=utf-8"));
@@ -42,6 +43,7 @@ public class RequestUtil {
         }
     }
 
+    @NotNull
     public static String buildGet(Map<String, Object> args) {
         if (args == null) {
             return "";
@@ -69,7 +71,7 @@ public class RequestUtil {
         }
     }
 
-    class ApiResult {
+    static class ApiResult {
         protected int code;
         protected String comment;
         protected JsonElement response;

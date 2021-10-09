@@ -2,8 +2,6 @@ package ru.redguy.redguyapi.minecraft;
 
 import ru.redguy.redguyapi.ApiError;
 import ru.redguy.redguyapi.RequestUtil;
-import ru.redguy.redguyapi.math.Math;
-import ru.redguy.redguyapi.math.NumberLevels;
 
 import java.io.IOException;
 import java.util.HashMap;
