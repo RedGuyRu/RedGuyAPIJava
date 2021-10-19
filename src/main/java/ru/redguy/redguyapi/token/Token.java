@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import ru.redguy.redguyapi.ApiError;
 import ru.redguy.redguyapi.HashUtils;
 import ru.redguy.redguyapi.RequestUtil;
+import ru.redguy.redguyapi.minecraft.ServerInfo;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -25,5 +26,15 @@ public class Token {
 
     public static IssuedToken issue(int appId, String secret, List<String> scope) throws ApiError, IOException, NoSuchAlgorithmException {
         return issue(appId, secret, scope, new HashMap<>());
+    }
+
+    private final Map<String, String> options;
+
+    public Token(Map<String, String> options) {
+        this.options = options;
+    }
+
+    public AppToken info() throws ApiError, IOException {
+        return RequestUtil.mainGet("v1/token/info", AppToken.class,options,new HashMap<String, Object>());
     }
 }
