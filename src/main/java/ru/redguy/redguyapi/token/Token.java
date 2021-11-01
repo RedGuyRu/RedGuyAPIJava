@@ -37,4 +37,8 @@ public class Token {
     public AppToken info() throws ApiError, IOException {
         return RequestUtil.mainGet("v1/token/info", AppToken.class,options,new HashMap<String, Object>());
     }
+
+    public RevokedToken revoke() throws ApiError, IOException {
+        return RequestUtil.mainGet("v1/token/revoke", RevokedToken.class,options,new HashMap<String, Object>());
+    }
 }
