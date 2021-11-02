@@ -4,7 +4,6 @@ import com.google.gson.JsonObject;
 import ru.redguy.redguyapi.ApiError;
 import ru.redguy.redguyapi.HashUtils;
 import ru.redguy.redguyapi.RequestUtil;
-import ru.redguy.redguyapi.minecraft.ServerInfo;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
