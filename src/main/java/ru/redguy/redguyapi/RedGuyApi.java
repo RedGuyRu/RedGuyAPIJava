@@ -4,6 +4,7 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import ru.redguy.redguyapi.minecraft.Minecraft;
 import ru.redguy.redguyapi.token.Token;
+import ru.redguy.redguyapi.users.Users;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,4 +31,6 @@ public class RedGuyApi {
     public Minecraft minecraft() {return new Minecraft(options);}
 
     public Token token() {return new Token(options);}
+
+    public Users users() {return new Users(options);}
 }
