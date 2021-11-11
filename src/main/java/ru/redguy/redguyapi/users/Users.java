@@ -1,7 +1,7 @@
 package ru.redguy.redguyapi.users;
 
 import ru.redguy.redguyapi.ApiError;
-import ru.redguy.redguyapi.RequestUtil;
+import ru.redguy.redguyapi.utils.RequestUtil;
 
 import java.io.IOException;
 import java.util.HashMap;

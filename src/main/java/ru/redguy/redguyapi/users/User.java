@@ -1,6 +1,6 @@
 package ru.redguy.redguyapi.users;
 
-import ru.redguy.redguyapi.RequestUtil;
+import ru.redguy.redguyapi.utils.RequestUtil;
 
 public class User implements RequestUtil.ApiResponse {
 

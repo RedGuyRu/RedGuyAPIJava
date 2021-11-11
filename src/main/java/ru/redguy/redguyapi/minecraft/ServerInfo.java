@@ -1,6 +1,6 @@
 package ru.redguy.redguyapi.minecraft;
 
-import ru.redguy.redguyapi.RequestUtil;
+import ru.redguy.redguyapi.utils.RequestUtil;
 
 import java.util.List;
 

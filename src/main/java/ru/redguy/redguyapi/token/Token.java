@@ -2,8 +2,8 @@ package ru.redguy.redguyapi.token;
 
 import com.google.gson.JsonObject;
 import ru.redguy.redguyapi.ApiError;
-import ru.redguy.redguyapi.HashUtils;
-import ru.redguy.redguyapi.RequestUtil;
+import ru.redguy.redguyapi.utils.HashUtils;
+import ru.redguy.redguyapi.utils.RequestUtil;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;

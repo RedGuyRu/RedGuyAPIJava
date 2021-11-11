@@ -1,4 +1,4 @@
-package ru.redguy.redguyapi;
+package ru.redguy.redguyapi.utils;
 
 import org.jetbrains.annotations.NotNull;
 

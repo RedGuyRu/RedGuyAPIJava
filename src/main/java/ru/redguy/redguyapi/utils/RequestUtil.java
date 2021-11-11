@@ -1,8 +1,9 @@
-package ru.redguy.redguyapi;
+package ru.redguy.redguyapi.utils;
 
 import com.google.gson.JsonElement;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
+import ru.redguy.redguyapi.ApiError;
 import ru.redguy.redguyapi.utils.GSON;
 
 import java.io.IOException;

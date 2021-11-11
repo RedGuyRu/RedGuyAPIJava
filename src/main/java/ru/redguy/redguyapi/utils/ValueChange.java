@@ -1,4 +1,4 @@
-package ru.redguy.redguyapi;
+package ru.redguy.redguyapi.utils;
 
 public class ValueChange<K,V> {
     private final V newValue;

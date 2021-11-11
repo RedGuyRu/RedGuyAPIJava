@@ -1,6 +1,6 @@
 package ru.redguy.redguyapi.token;
 
-import ru.redguy.redguyapi.RequestUtil;
+import ru.redguy.redguyapi.utils.RequestUtil;
 
 public class AppToken implements RequestUtil.ApiResponse {
     protected int id;
