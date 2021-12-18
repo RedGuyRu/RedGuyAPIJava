@@ -7,5 +7,14 @@ Library to use [redguy api](https://wiki.redguy.ru/Api "redguy api").
 ## Install
 gradle
 ```groovy
-compile group: 'ru.redguy', name: 'redguyapi', version: '1.1.0'
+repositories {
+    mavenCentral()
+    maven {
+        url "https://repo.redguy.ru/repository/maven-public/"
+    }
+}
+
+dependencies {
+    compile group: 'ru.redguy', name: 'redguyapi', version: '1.1.0'
+}
 ```
