@@ -1,13 +1,23 @@
 package ru.redguy.redguyapi.news;
 
-import java.util.ArrayList;
+import ru.redguy.redguyapi.utils.RequestUtil.ApiResponse;
 
-public class NewsPost {
+import java.util.ArrayList;
+import java.util.List;
+
+public class NewsPost implements ApiResponse {
+    public NewsPost(String name, String content, int author, List<String> tags) {
+        this.name = name;
+        this.content = content;
+        this.author = author;
+        this.tags = tags;
+    }
+
     protected int id;
     protected String name;
     protected String content;
     protected int author;
-    protected ArrayList<String> tags;
+    protected List<String> tags;
     protected String published;
 
     public int getId() {
@@ -26,7 +36,7 @@ public class NewsPost {
         return author;
     }
 
-    public ArrayList<String> getTags() {
+    public List<String> getTags() {
         return tags;
     }
 

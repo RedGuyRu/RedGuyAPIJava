@@ -1,6 +1,7 @@
 package ru.redguy.redguyapi.news;
 
 import ru.redguy.redguyapi.ApiError;
+import ru.redguy.redguyapi.utils.GSON;
 import ru.redguy.redguyapi.utils.RequestUtil;
 
 import java.io.IOException;
@@ -16,12 +17,20 @@ public class News {
     }
 
     public List<NewsPost> get(String tag) throws ApiError, IOException {
-        return RequestUtil.mainGet("v1/news/get", NewsResponse.class,options,new HashMap<String, Object>() {{
+        return RequestUtil.mainGet("v1/news/", NewsResponse.class,options,new HashMap<String, Object>() {{
             put("tag",tag);
         }}).getNews();
     }
 
     public List<NewsPost> get() throws ApiError, IOException {
-        return RequestUtil.mainGet("v1/news/get", NewsResponse.class,options, new HashMap<>()).getNews();
+        return RequestUtil.mainGet("v1/news/", NewsResponse.class,options, new HashMap<>()).getNews();
+    }
+
+    public int post(String name, String content, int author, List<String> tags) throws ApiError, IOException {
+        return RequestUtil.mainPost(
+                "v1/news/",
+                NewsPost.class,
+                options,
+                GSON.GSON.toJson(new NewsPost(name, content,author,tags)), new HashMap<>()).getId();
     }
 }

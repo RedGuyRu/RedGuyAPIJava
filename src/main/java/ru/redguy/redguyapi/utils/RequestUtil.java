@@ -37,7 +37,8 @@ public class RequestUtil {
         Request request = new Request.Builder().url("https://api.redguy.ru/" + path + "/" + buildGet(params)).post(rb).build();
 
         Response response = okHttpClient.newCall(request).execute();
-        ApiResult result = GSON.GSON.fromJson(response.body().string(),ApiResult.class);
+        String str = response.body().string();
+        ApiResult result = GSON.GSON.fromJson(str,ApiResult.class);
         if (result.getCode() != 1) {
             throw new ApiError(result.getCode(), result.getComment());
         } else {
