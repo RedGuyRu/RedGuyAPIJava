@@ -4,7 +4,6 @@ import com.google.gson.JsonElement;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 import ru.redguy.redguyapi.ApiError;
-import ru.redguy.redguyapi.utils.GSON;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -25,7 +24,7 @@ public class RequestUtil {
         if (result.getCode() != 1) {
             throw new ApiError(result.getCode(), result.getComment());
         } else {
-            return GSON.GSON.fromJson(result.getResponse(),responseType);
+            return GSON.GSON.fromJson(result.getResponse(), responseType);
         }
     }
 
@@ -38,11 +37,11 @@ public class RequestUtil {
 
         Response response = okHttpClient.newCall(request).execute();
         String str = response.body().string();
-        ApiResult result = GSON.GSON.fromJson(str,ApiResult.class);
+        ApiResult result = GSON.GSON.fromJson(str, ApiResult.class);
         if (result.getCode() != 1) {
             throw new ApiError(result.getCode(), result.getComment());
         } else {
-            return GSON.GSON.fromJson(result.getResponse(),responseType);
+            return GSON.GSON.fromJson(result.getResponse(), responseType);
         }
     }
 

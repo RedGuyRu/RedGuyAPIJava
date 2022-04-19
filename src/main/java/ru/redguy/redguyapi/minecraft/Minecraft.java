@@ -16,8 +16,8 @@ public class Minecraft {
     }
 
     public ServerInfo serverinfo(String host) throws ApiError, IOException {
-        return RequestUtil.mainGet("v1/minecraft/serverinfo", ServerInfo.class,options,new HashMap<String, Object>() {{
-            put("host",host);
+        return RequestUtil.mainGet("v1/minecraft/serverinfo", ServerInfo.class, options, new HashMap<String, Object>() {{
+            put("host", host);
         }});
     }
 }

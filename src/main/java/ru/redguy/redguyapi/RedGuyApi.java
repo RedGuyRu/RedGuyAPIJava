@@ -21,6 +21,7 @@ public class RedGuyApi {
 
     /**
      * Constructs main api object.
+     *
      * @param token Your api token.
      */
     public RedGuyApi(String token) {
@@ -29,7 +30,8 @@ public class RedGuyApi {
 
     /**
      * Constructs main api object with specified params.
-     * @param token Your api token.
+     *
+     * @param token   Your api token.
      * @param options Additional client params
      */
     public RedGuyApi(String token, Map<String, String> options) {
@@ -45,31 +47,46 @@ public class RedGuyApi {
 
     /**
      * Returns new instance of Minecraft API section
+     *
      * @return Minecraft API section
      */
-    public Minecraft minecraft() {return new Minecraft(options);}
+    public Minecraft minecraft() {
+        return new Minecraft(options);
+    }
 
     /**
      * Returns new instance of Token API section
+     *
      * @return Token API section
      */
-    public Token token() {return new Token(options);}
+    public Token token() {
+        return new Token(options);
+    }
 
     /**
      * Returns new instance of Users API section
+     *
      * @return Users API section
      */
-    public Users users() {return new Users(options);}
+    public Users users() {
+        return new Users(options);
+    }
 
     /**
      * Returns new instance of News API section
+     *
      * @return News API section
      */
-    public News news() {return new News(options);}
+    public News news() {
+        return new News(options);
+    }
 
     /**
      * Returns new instance of Hashes API section
+     *
      * @return Hashes API section
      */
-    public Hashes hashes() {return new Hashes(options);}
+    public Hashes hashes() {
+        return new Hashes(options);
+    }
 }

@@ -15,6 +15,6 @@ public class Users {
     }
 
     public User info() throws ApiError, IOException {
-        return RequestUtil.mainGet("v1/users/get", User.class,options, new HashMap<>());
+        return RequestUtil.mainGet("v1/users/get", User.class, options, new HashMap<>());
     }
 }

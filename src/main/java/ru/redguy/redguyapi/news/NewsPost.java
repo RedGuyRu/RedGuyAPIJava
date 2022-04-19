@@ -2,7 +2,6 @@ package ru.redguy.redguyapi.news;
 
 import ru.redguy.redguyapi.utils.RequestUtil.ApiResponse;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class NewsPost implements ApiResponse {

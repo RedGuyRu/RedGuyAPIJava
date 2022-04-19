@@ -7,7 +7,8 @@ public class ApiError extends Exception {
 
     /**
      * The error returned by the api server, to clarify the reason, see https://wiki.redguy.ru/Api/Errors
-     * @param code Error id
+     *
+     * @param code    Error id
      * @param comment Error name
      */
     public ApiError(int code, String comment) {
@@ -23,6 +24,7 @@ public class ApiError extends Exception {
 
     /**
      * Returns error id, to clarify the reason, see https://wiki.redguy.ru/Api/Errors
+     *
      * @return Error id
      */
     public int getCode() {

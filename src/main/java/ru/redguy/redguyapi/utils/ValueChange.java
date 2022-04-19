@@ -1,10 +1,10 @@
 package ru.redguy.redguyapi.utils;
 
-public class ValueChange<K,V> {
+public class ValueChange<K, V> {
     private final V newValue;
     private final K oldValue;
 
-    public ValueChange (K oldValue, V newValue) {
+    public ValueChange(K oldValue, V newValue) {
         this.newValue = newValue;
         this.oldValue = oldValue;
     }
