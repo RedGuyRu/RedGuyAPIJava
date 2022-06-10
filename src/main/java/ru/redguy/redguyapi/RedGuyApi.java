@@ -3,6 +3,7 @@ package ru.redguy.redguyapi;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import ru.redguy.redguyapi.hashes.Hashes;
+import ru.redguy.redguyapi.links.Links;
 import ru.redguy.redguyapi.minecraft.Minecraft;
 import ru.redguy.redguyapi.news.News;
 import ru.redguy.redguyapi.token.Token;
@@ -88,5 +89,14 @@ public class RedGuyApi {
      */
     public Hashes hashes() {
         return new Hashes(options);
+    }
+
+    /**
+     * Returns new instance of Links API section
+     *
+     * @return Links API section
+     */
+    public Links links() {
+        return new Links(options);
     }
 }

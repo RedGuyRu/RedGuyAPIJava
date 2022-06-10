@@ -5,7 +5,7 @@ plugins {
 apply plugin: 'maven'
 
 group 'ru.redguy'
-version '1.1.0'
+version '1.1.1'
 
 repositories {
     maven {
@@ -25,7 +25,7 @@ uploadArchives {
             repository(url: "https://repo.redguy.ru/repository/maven/") {
                 authentication(userName: System.getenv("MVN_USER"), password: System.getenv("MVN_PASSWORD"))
             }
-            pom.version = "1.1.0"
+            pom.version = "1.1.1"
             pom.artifactId = "redguyapi"
             pom.groupId = "ru.redguy"
         }
