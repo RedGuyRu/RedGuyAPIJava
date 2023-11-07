@@ -6,6 +6,7 @@ import ru.redguy.redguyapi.hashes.Hashes;
 import ru.redguy.redguyapi.links.Links;
 import ru.redguy.redguyapi.minecraft.Minecraft;
 import ru.redguy.redguyapi.news.News;
+import ru.redguy.redguyapi.text.Text;
 import ru.redguy.redguyapi.token.Token;
 import ru.redguy.redguyapi.users.Users;
 
@@ -98,5 +99,9 @@ public class RedGuyApi {
      */
     public Links links() {
         return new Links(options);
+    }
+
+    public Text text() {
+        return new Text(options);
     }
 }

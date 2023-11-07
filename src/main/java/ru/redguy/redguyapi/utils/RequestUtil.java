@@ -8,6 +8,7 @@ import ru.redguy.redguyapi.ApiError;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.HashMap;
 import java.util.Map;
 
 public class RequestUtil {
@@ -26,6 +27,10 @@ public class RequestUtil {
         } else {
             return GSON.GSON.fromJson(result.getResponse(), responseType);
         }
+    }
+
+    public static <T extends ApiResponse> T mainPost(String path, Class<T> responseType, @NotNull Map<String, String> options, Object body) throws ApiError, IOException {
+        return mainPost(path, responseType, options, GSON.GSON.toJson(body), new HashMap<>());
     }
 
     public static <T extends ApiResponse> T mainPost(String path, Class<T> responseType, @NotNull Map<String, String> options, String body, @NotNull Map<String, Object> params) throws ApiError, IOException {
