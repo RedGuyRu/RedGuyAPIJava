@@ -5,7 +5,7 @@ plugins {
 apply plugin: 'maven'
 
 group 'ru.redguy'
-version '1.1.1'
+version '1.1.2'
 
 repositories {
     maven {
@@ -17,6 +17,11 @@ repositories {
 dependencies {
     compile 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'com.google.code.gson:gson:2.8.8'
+}
+
+//utf-8
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }
 
 uploadArchives {

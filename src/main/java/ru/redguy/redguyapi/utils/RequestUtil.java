@@ -29,7 +29,7 @@ public class RequestUtil {
         }
     }
 
-    public static <T extends ApiResponse> T mainPost(String path, Class<T> responseType, @NotNull Map<String, String> options, Object body) throws ApiError, IOException {
+    public static <T extends ApiResponse> T mainPost(String path, Class<T> responseType, @NotNull Map<String, String> options, JsonElement body) throws ApiError, IOException {
         return mainPost(path, responseType, options, GSON.GSON.toJson(body), new HashMap<>());
     }
 

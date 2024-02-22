@@ -1,12 +1,10 @@
 package ru.redguy.redguyapi.text;
 
+import com.google.gson.JsonObject;
 import ru.redguy.redguyapi.ApiError;
-import ru.redguy.redguyapi.links.SafeEntry;
-import ru.redguy.redguyapi.links.SafeResponse;
 import ru.redguy.redguyapi.utils.RequestUtil;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,20 +18,19 @@ public class Text {
     /**
      * Parses text and returns a json object with found entities, requires text:parse permission
      *
-     * @return Array of SafeEntries
      * @throws ApiError    Error from API
      * @throws IOException Network error
      */
-    public TextParseResponse parse(String texts, String lang) throws ApiError, IOException {
-        return RequestUtil.mainPost("v1/text/parse", TextParseResponse.class, options, new Object() {{
-
-        }});
+    public TextParseResponse parse(String text, String lang) throws ApiError, IOException {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("text", text);
+        jsonObject.addProperty("lang", lang);
+        return RequestUtil.mainPost("v1/text/parse", TextParseResponse.class, options, jsonObject);
     }
 
     /**
      * Parses text and returns a json object with found entities with ru_ru language, requires text:parse permission
      *
-     * @return Array of SafeEntries
      * @throws ApiError    Error from API
      * @throws IOException Network error
      */

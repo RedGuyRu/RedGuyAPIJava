@@ -1,14 +1,9 @@
 package ru.redguy.redguyapi.text;
 
-import ru.redguy.redguyapi.links.SafeEntry;
 import ru.redguy.redguyapi.utils.RequestUtil;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public class TextParseResponse implements RequestUtil.ApiResponse {
-    private String body;
-    private int start;
-    private int end;
-    private String dim;
-    private boolean latent;
+public class TextParseResponse extends ArrayList<TextEntity> implements RequestUtil.ApiResponse {
+
 }
