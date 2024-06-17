@@ -5,18 +5,17 @@ plugins {
 apply plugin: 'maven'
 
 group 'ru.redguy'
-version '1.1.2'
+version '1.1.3'
 
 repositories {
     maven {
-        url "https://repo.redguy.ru/repository/maven-public/"
+        url "https://rep.redguy.org/maven-proxy/"
     }
-    mavenCentral()
 }
 
 dependencies {
-    compile 'com.squareup.okhttp3:okhttp:4.9.0'
-    implementation 'com.google.code.gson:gson:2.8.8'
+    compile 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
 }
 
 //utf-8
@@ -27,10 +26,10 @@ tasks.withType(JavaCompile) {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "https://repo.redguy.ru/repository/maven/") {
+            repository(url: "https://rep.redguy.org/maven/") {
                 authentication(userName: System.getenv("MVN_USER"), password: System.getenv("MVN_PASSWORD"))
             }
-            pom.version = "1.1.1"
+            pom.version = project.version
             pom.artifactId = "redguyapi"
             pom.groupId = "ru.redguy"
         }
