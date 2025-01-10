@@ -25,6 +25,7 @@ public class RequestUtil {
         if (result.getCode() != 1) {
             throw new ApiError(result.getCode(), result.getComment());
         } else {
+            if(responseType == null) return null;
             return GSON.GSON.fromJson(result.getResponse(), responseType);
         }
     }
@@ -46,6 +47,7 @@ public class RequestUtil {
         if (result.getCode() != 1) {
             throw new ApiError(result.getCode(), result.getComment());
         } else {
+            if(responseType == null) return null;
             return GSON.GSON.fromJson(result.getResponse(), responseType);
         }
     }
